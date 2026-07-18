@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Medicina Esportiva com foco em emagrecimento, performance esportiva, saúde e estética. Atendimentos em São Paulo e Guarulhos. Contato via WhatsApp." />
+  <title>Dr. Gabriel Maluli | Medicina Esportiva</title>
+
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#111827;
+      --muted:#9ca3af;
+      --text:#e5e7eb;
+      --accent:#22c55e;
+      --accent2:#38bdf8;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(56,189,248,.15), transparent 60%),
+                  radial-gradient(900px 500px at 80% 20%, rgba(34,197,94,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px;}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,23,.65);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:2px;
+    }
+    .brand strong{font-size:14px; letter-spacing:.2px}
+    .brand span{font-size:12px; color:var(--muted)}
+    .nav-links{
+      display:flex; gap:18px; align-items:center; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-links a{
+      font-size:13px; color:var(--muted);
+      padding:8px 10px; border-radius:999px;
+      border:1px solid transparent;
+      transition:.2s ease;
+    }
+    .nav-links a:hover{
+      color:var(--text);
+      border-color: var(--border);
+      background: rgba(255,255,255,.03);
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      transition:.2s ease;
+      font-weight:650;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.22)}
+    .btn-accent{
+      background: linear-gradient(135deg, rgba(34,197,94,.18), rgba(56,189,248,.14));
+      border-color: rgba(56,189,248,.35);
+    }
+
+    .hero{
+      padding:54px 0 30px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+    }
+
+    .hero-card{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius: var(--radius);
+      padding:26px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(600px 250px at 20% 0%, rgba(56,189,248,.25), transparent 60%),
+        radial-gradient(600px 250px at 70% 10%, rgba(34,197,94,.18), transparent 55%);
+      opacity:.7;
+      pointer-events:none;
+    }
+    .hero-card > *{position:relative}
+
+    .kicker{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-bottom:14px;
+    }
+    .pill{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .title{
+      font-size:40px;
+      line-height:1.06;
+      margin:0 0 12px;
+      letter-spacing:-.8px;
+    }
+    @media (max-width: 520px){
+      .title{font-size:32px}
+    }
+    .subtitle{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      max-width:62ch;
+    }
+
+    .hero-actions{
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+      margin-top:10px;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      height:100%;
+    }
+
+    .stat{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius);
+      padding:18px;
+    }
+    .stat h3{
+      margin:0 0 6px;
+      font-size:14px;
+      color:var(--text);
+    }
+    .stat p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .stat strong{
+      font-size:22px;
+      display:block;
+      margin-bottom:6px;
+      letter-spacing:-.4px;
+    }
+
+    section{padding:26px 0;}
+    .section-title{
+      font-size:22px;
+      margin:0 0 8px;
+      letter-spacing:-.3px;
+    }
+    .section-lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:14px;
+      max-width:80ch;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 920px){
+      .grid-3{grid-template-columns:1fr}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius);
+      padding:18px;
+    }
+    .card h3{margin:0 0 8px; font-size:15px}
+    .card p{margin:0; color:var(--muted); font-size:13.5px}
+
+    .list{
+      display:flex; flex-direction:column; gap:10px;
+      margin-top:10px;
+    }
+    .li{
+      display:flex; gap:12px; align-items:flex-start;
+      padding:12px;
+      border-radius:14px;
+      border:1px dashed rgba(255,255,255,.14);
+      background: rgba(255,255,255,.02);
+    }
+    .check{
+      width:26px; height:26px; border-radius:8px;
+      display:inline-flex; align-items:center; justify-content:center;
+      background: rgba(34,197,94,.15);
+      border:1px solid rgba(34,197,94,.35);
+      flex:0 0 auto;
+      margin-top:2px;
+      font-size:14px;
+    }
+    .li strong{display:block; font-size:14px; margin-bottom:2px}
+    .li span{color:var(--muted); font-size:13px}
+
+    .cta{
+      display:flex; gap:14px; align-items:center; justify-content:space-between;
+      border:1px solid var(--border);
+      background: linear-gradient(135deg, rgba(34,197,94,.10), rgba(56,189,248,.10));
+      border-radius: var(--radius);
+      padding:18px;
+      margin-top:10px;
+      flex-wrap:wrap;
+    }
+    .cta p{margin:0; color:var(--muted); font-size:14px}
+    .cta strong{display:block; margin-bottom:4px}
+
+    footer{
+      padding:24px 0 34px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .contact-card{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 920px){
+      .contact-card{grid-template-columns:1fr}
+    }
+    .field{
+      display:flex; flex-direction:column; gap:8px;
+    }
+    .field label{
+      font-size:13px; color:var(--muted);
+    }
+    .info{
+      padding:14px;
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.02);
+    }
+    .info strong{display:block; margin-bottom:6px; color:var(--text)}
+    .info a{color:var(--text); font-weight:650}
+
+    .whatsapp-note{
+      font-size:12.5px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand" aria-label="Identidade do site">
+        <strong>Dr. Gabriel Maluli</strong>
+        <span>Medicina Esportiva • Emagrecimento • Performance</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#emagrecimento">Emagrecimento</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#contato">Contato</a>
+
+        <a class="btn btn-accent" id="whatsTop" href="#" target="_blank" rel="noopener">
+          <span>WhatsApp</span> <span aria-hidden="true">💬</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="kicker">
+            <span class="pill">São Paulo-SP • Guarulhos-SP</span>
+            <span class="pill">Atendimentos médicos</span>
+            <span class="pill">Foco em emagrecimento</span>
+          </div>
+
+          <h1 class="title">Medicina Esportiva para <span style="color:var(--accent2)">emagrecer</span> com saúde e performance</h1>
+          <p class="subtitle">
+            Atendimento médico com abordagem integrada: <b>emagrecimento</b>, <b>condicionamento físico</b>,
+            <b>saúde</b> e <b>estética</b>, com acompanhamento para você treinar com segurança e evoluir.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-accent" href="#contato">
+              Agendar avaliação <span aria-hidden="true">📅</span>
+            </a>
+            <a class="btn" id="whatsHero" href="#" target="_blank" rel="noopener">
+              Falar no WhatsApp <span aria-hidden="true">➡️</span>
+            </a>
+          </div>
+
+          <div class="cta" style="margin-top:18px;">
+            <div>
+              <strong style="font-size:14px;">Objetivo claro, plano prático</strong>
+              <p>Da avaliação ao acompanhamento, com metas realistas e estratégias personalizadas.</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
+              <span class="pill" style="border-color: rgba(34,197,94,.35); color: #d1fae5;">✅ Segurança</span>
+              <span class="pill" style="border-color: rgba(56,189,248,.35); color: #e0f2fe;">✅ Performance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-grid">
+          <div class="stat">
+            <strong>Emagrecimento</strong>
+            <h3>Estratégia médica + rotina</h3>
+            <p>Você entende o “porquê” e segue um plano com acompanhamento e ajustes.</p>
+          </div>
+          <div class="stat">
+            <strong>Performance esportiva</strong>
+            <h3>Treino com respaldo</h3>
+            <p>Apoio para evolução consistente, prevenindo excessos e riscos.</p>
+          </div>
+          <div class="stat">
+            <strong>Saúde & Estética</strong>
+            <h3>Bem-estar integral</h3>
+            <p>Foco em saúde, estética e qualidade de vida, com conduta responsável.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="container">
+        <h2 class="section-title">Sobre o atendimento</h2>
+        <p class="section-lead">
+          Sou o Dr. Gabriel Maluli. Minha proposta é unir <b>Medicina Esportiva</b> a uma abordagem que prioriza
+          <b>emagrecimento sustentável</b> e evolução segura—para você se sentir bem e ter resultados de verdade.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>🔎 Avaliação completa</h3>
+            <p>História clínica, contexto do treino e objetivos, com olhar clínico e esportivo.</p>
+          </div>
+          <div class="card">
+            <h3>🎯 Plano personalizado</h3>
+            <p>Metas e condutas alinhadas ao seu dia a dia e ao seu nível de treino.</p>
+          </div>
+          <div class="card">
+            <h3>📈 Acompanhamento</h3>
+            <p>Reavaliações e ajustes conforme evolução, resposta do corpo e necessidades.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMAGRECIMENTO -->
+    <section id="emagrecimento">
+      <div class="container">
+        <h2 class="section-title">Emagrecimento com base médica</h2>
+        <p class="section-lead">
+          Em vez de soluções rápidas, trabalhamos com estratégia: segurança, consistência e acompanhamento.
+          O objetivo é ajudar você a perder gordura com melhor desempenho e saúde.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>🧠 Metas realistas</h3>
+            <p>Definição de objetivos e prioridades para melhorar adesão e resultado.</p>
+          </div>
+          <div class="card">
+            <h3>🫀 Rotina sustentável</h3>
+            <p>Organização para caber no seu cotidiano e respeitar seus limites.</p>
+          </div>
+          <div class="card">
+            <h3>🧪 Ajustes com acompanhamento</h3>
+            <p>Revisões para adequar condutas e acompanhar evolução.</p>
+          </div>
+        </div>
+
+        <div class="list" style="margin-top:16px;">
+          <div class="li">
+            <div class="check">✓</div>
+            <div>
+              <strong>Mais do que “perder peso”</strong>
+              <span>Seu foco é gordura, condicionamento e bem-estar.</span>
+            </div>
+          </div>
+          <div class="li">
+            <div class="check" style="background: rgba(56,189,248,.14); border-color: rgba(56,189,248,.35);">✓</div>
+            <div>
+              <strong>Performance esportiva integrada</strong>
+              <span>Treino e saúde caminham juntos para você evoluir com segurança.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona">
+      <div class="container">
+        <h2 class="section-title">Como funciona</h2>
+        <p class="section-lead">
+          Um processo simples, claro e guiado por acompanhamento médico. Você sabe o que esperar em cada etapa.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>1) Primeiro contato</h3>
+            <p>Você descreve seu objetivo, rotina de treino e histórico para alinharmos a melhor abordagem.</p>
+          </div>
+          <div class="card">
+            <h3>2) Avaliação e conduta</h3>
+            <p>Definição do plano com base clínica e esportiva, com orientações para o acompanhamento.</p>
+          </div>
+          <div class="card">
+            <h3>3) Acompanhamento</h3>
+            <p>Reavaliações para ajustes conforme evolução, resposta do corpo e metas.</p>
+          </div>
+        </div>
+
+        <div class="cta">
+          <div>
+            <strong>Pronto para começar?</strong>
+            <p>Me chame no WhatsApp e agende sua avaliação.</p>
+          </div>
+          <a class="btn btn-accent" id="whatsCta" href="#" target="_blank" rel="noopener">
+            Agendar via WhatsApp <span aria-hidden="true">💬</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato">
+      <div class="container">
+        <h2 class="section-title">Contato</h2>
+        <p class="section-lead">
+          Atendo em <b>São Paulo-SP</b> e <b>Guarulhos-SP</b>. Envie sua mensagem e eu te ajudo a dar o próximo passo.
+        </p>
+
+        <div class="contact-card">
+          <div class="info">
+            <strong>📲 WhatsApp</strong>
+            <a id="whatsLink" href="#" target="_blank" rel="noopener">(11) 976009099</a>
+            <div class="whatsapp-note">Resposta mais rápida pelo WhatsApp.</div>
+          </div>
+
+          <div class="info">
+            <strong>✉️ Email</strong>
+            <a href="mailto:gabrielfragamalulideoliveira@hotmail.com">gabrielfragamalulideoliveira@hotmail.com</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <h3 style="margin-top:0;">Mensagem pronta (opcional)</h3>
+          <p style="margin:0; color:var(--muted);">
+            Você pode enviar: <b>“Olá, Dr. Gabriel! Tenho interesse em avaliação para emagrecimento e performance. Como funciona?”</b>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap;">
+      <div>© <span id="year"></span> Dr. Gabriel Maluli • Medicina Esportiva</div>
+      <div>Feito para mobile • Atendimento em SP e Guarulhos</div>
+    </div>
+  </footer>
+
+  <script>
+    // Dados de contato
+    const phone = "5511976009099"; // WhatsApp no formato internacional (BR)
+    const whatsappUrl = `https://wa.me/${phone}`;
+    const msg = encodeURIComponent("Olá, Dr. Gabriel! Tenho interesse em avaliação para emagrecimento e performance. Como funciona?");
+    const whatsappWithMessage = `${whatsappUrl}?text=${msg}`;
+
+    // Links WhatsApp
+    const targets = [
+      "whatsTop",
+      "whatsHero",
+      "whatsCta",
+      "whatsLink"
+    ];
+
+    targets.forEach(id => {
+      const el = document.getElementById(id);
+      if(el){
+        el.href = whatsappWithMessage;
+      }
+    });
+
+    // Ano
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
